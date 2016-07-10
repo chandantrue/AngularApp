@@ -19,4 +19,4 @@ Run npm install from the root AngularApp folder.
 
 This will automatically run bower install for you.
 
-You can start the application by running http-server on client folder within AngularApp.
+You can start the application by running http-server on client/app folder within AngularApp.

@@ -3,9 +3,9 @@
 
 	angular
 	    .module('app')
-	    .factory('exception', exception);
+	    .factory('$exceptionHandler', exceptionHandler);
 	
-	exception.$inject = ['logger'];
+	exceptionHandler.$inject = ['$log'];
 	
 	/**
 	 * @name logError
@@ -15,16 +15,14 @@
 	 * @memberOf Factories.Logger
 	 */
 	
-	function exception(logger) {
+	function exceptionHandler($log) {
 	    var service = {
 	        catcher: catcher
 	    };
 	    return service;
 	
-	    function catcher(message) {
-	        return function(reason) {
-	            logger.error(message, reason);
-	        };
+	    function catcher(exception, cause) {
+	            $log.warn(exception, cause);
 	    }
 	}
 })();

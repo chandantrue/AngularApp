@@ -20,6 +20,6 @@ module.exports = {
 			}
 		},
 		src: ['client/app/partials/**/*.html'],
-		dest: 'client/app/main/templateCache.js'
+		dest: 'client/app/main/app.templates.js'
 	}
 }

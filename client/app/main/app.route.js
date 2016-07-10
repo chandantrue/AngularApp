@@ -1,35 +1,23 @@
-angular
-	.module('app')
-	.config(config);
+(function(){
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
-
-function config($stateProvider, $urlRouterProvider) {
-	// For any unmatched url, send to /route1
-	$urlRouterProvider.otherwise("/route1")
-
-	$stateProvider
-	.state('route1', {
-		url: "/route1",
-		templateUrl: "route1.html"
-	})
-	.state('route1.list', {
-		url: "/list",
-		templateUrl: "route1.list.html",
-		controller: function($scope){
-			$scope.items = ["A", "List", "Of", "Items"];
-		}
-	})
-
-	.state('route2', {
-		url: "/route2",
-		templateUrl: "route2.html"
-	})
-	.state('route2.list', {
-		url: "/list",
-		templateUrl: "route2.list.html",
-		controller: function($scope){
-			$scope.things = ["A", "Set", "Of", "Things"];
-		}
-	})
-}
+	angular
+		.module('app')
+		.config(configModule);
+	
+	configModule.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+	
+	function configModule($stateProvider, $urlRouterProvider, $httpProvider) {
+		
+		// For any unmatched url, send to /route1
+		$urlRouterProvider.otherwise("/landing")
+	
+		$stateProvider
+			.state('landing', {
+				url: "/landing",
+				templateUrl: "../partials/common/landing/landing.html"
+			})
+			
+		//Registering Error Interceptor for HTTP's Requests
+		$httpProvider.interceptors.push('httpInterceptor');
+	}
+})();

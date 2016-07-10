@@ -1,8 +1,17 @@
+angular.module('app.templates', []).run(['$templateCache', function($templateCache) {
+  "use strict";
+  $templateCache.put("../app/partials/common/landing/landing.html",
+    "<md-content>Hi</md-content>");
+}]);
+
 (function() {
 	'use strict';
 	
 	angular.module('app', [
        
+	   //Template Cache
+	   'app.templates',
+	   
        //Custom Angular-UI Router
        'ui.router' 
 	                       
@@ -11,8 +20,8 @@
 	angular.module('app').run(runModule);
 	
 	/**
-     * @name logError
-     * @desc Logs errors
+     * @name runModule
+     * @desc Has initialization logic after the application bootstraps
      * @param {String} msg Message to log
      * @returns {String}
      * @memberOf Factories.Logger
@@ -23,71 +32,59 @@
 	}
 	
 })();
-angular
-	.module('app')
-	.config(config);
+(function(){
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
-
-function config($stateProvider, $urlRouterProvider) {
-	// For any unmatched url, send to /route1
-	$urlRouterProvider.otherwise("/route1")
-
-	$stateProvider
-	.state('route1', {
-		url: "/route1",
-		templateUrl: "route1.html"
-	})
-	.state('route1.list', {
-		url: "/list",
-		templateUrl: "route1.list.html",
-		controller: function($scope){
-			$scope.items = ["A", "List", "Of", "Items"];
-		}
-	})
-
-	.state('route2', {
-		url: "/route2",
-		templateUrl: "route2.html"
-	})
-	.state('route2.list', {
-		url: "/list",
-		templateUrl: "route2.list.html",
-		controller: function($scope){
-			$scope.things = ["A", "Set", "Of", "Things"];
-		}
-	})
-}
+	angular
+		.module('app')
+		.config(configModule);
+	
+	configModule.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+	
+	function configModule($stateProvider, $urlRouterProvider, $httpProvider) {
+		
+		// For any unmatched url, send to /route1
+		$urlRouterProvider.otherwise("/landing")
+	
+		$stateProvider
+			.state('landing', {
+				url: "/landing",
+				templateUrl: "../partials/common/landing/landing.html"
+			})
+			
+		//Registering Error Interceptor for HTTP's Requests
+		//$httpProvider.interceptors.push('httpInterceptor');
+	}
+})();
 /* global toastr:false, moment:false */
 (function() {
     'use strict';
 
-    angular
-        .module('app.core')
+    /*angular
+        .module('app')
         .constant('toastr', toastr)
         .constant('moment', moment);
     
     // Constants used by the entire app
     angular
-        .module('app.core')
+        .module('app')
         .constant('moment', moment);
 
     // Constants used only by the sales module
     angular
-        .module('app.sales')
+        .module('app')
         .constant('events', {
             ORDER_CREATED: 'event_order_created',
             INVENTORY_DEPLETED: 'event_inventory_depleted'
-        });
+    });*/
 })();
 (function() {
 	'use strict';
 
 	angular
 	    .module('app')
-	    .factory('exception', exception);
+	    .factory('$exceptionHandler', exceptionHandler);
 	
-	exception.$inject = ['logger'];
+	exceptionHandler.$inject = ['$log'];
 	
 	/**
 	 * @name logError
@@ -97,71 +94,67 @@ function config($stateProvider, $urlRouterProvider) {
 	 * @memberOf Factories.Logger
 	 */
 	
-	function exception(logger) {
+	function exceptionHandler($log) {
 	    var service = {
 	        catcher: catcher
 	    };
 	    return service;
 	
-	    function catcher(message) {
-	        return function(reason) {
-	            logger.error(message, reason);
-	        };
+	    function catcher(exception, cause) {
+	            $log.warn(exception, cause);
 	    }
 	}
 })();
 (function() {
 	'use strict';
-	
+
 	angular
-	    .module('app')
-	    .config(exceptionConfig);
-	
-	exceptionConfig.$inject = ['$provide'];
-	
-	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
-	 */
-	
-	function exceptionConfig($provide) {
-	    $provide.decorator('$exceptionHandler', extendExceptionHandler);
-	}
-	
-	extendExceptionHandler.$inject = ['$delegate', 'toastr'];
-	
-	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
-	 */
-	
-	function extendExceptionHandler($delegate, toastr) {
-	    return function(exception, cause) {
-	        $delegate(exception, cause);
-	        var errorData = {
-	            exception: exception,
-	            cause: cause
-	        };
-	        /**
-	         * Could add the error to a service's collection,
-	         * add errors to $rootScope, log errors to remote web server,
-	         * or log locally. Or throw hard. It is entirely up to you.
-	         * throw exception;
-	         */
-	        toastr.error(exception.msg, errorData);
-	    };
-	}
+		.module('app')
+		.factory('httpInterceptor', httpInterceptor);
+
+	httpInterceptor.inject = ['$q', '$location'];
+
+	function httpInterceptor($q, $location) {
+		var service =  {
+			'request': request,
+			'requestError': requestError,
+			'response': response,
+			'responseError': responseError
+		};
+		
+		return service;
+		
+		function request(config) {
+			// do something on success
+			return config;
+		}
+
+		function requestError(rejection) {
+			// do something on error
+			if (canRecover(rejection)) {
+				return responseOrNewPromise
+			}
+			return $q.reject(rejection);
+		}
+
+		function response(response) {
+			// do something on success
+			return response;
+		}
+
+		function responseError(rejection) {
+			// do something on error
+			if(rejection.status === 404){
+				$location.path('error');                    
+			}
+			return $q.reject(rejection);
+		}
+	};
 })();
 (function() {
 	'use strict';
 	
-	angular
+	/*angular
 	    .module('app')
 	    .factory('logger', logger);
 	
@@ -173,7 +166,7 @@ function config($stateProvider, $urlRouterProvider) {
      * @memberOf Factories.Logger
      */
 	
-	function logger() { 
+	/*function logger() { 
 		var someValue = '';
 	    var service = {
 	        save: save,
@@ -185,13 +178,13 @@ function config($stateProvider, $urlRouterProvider) {
 	    ////////////
 
 	    function save() {
-	        /* */
+	        //
 	    };
 
 	    function validate() {
-	        /* */
+	        //
 	    };
-	}
+	}*/
 	
 })();
 /**
@@ -235,22 +228,22 @@ function config($stateProvider, $urlRouterProvider) {
 	    }
 	}
 	
-	var handlingRouteChangeError = false;
+	/*var handlingRouteChangeError = false;
 	
-	/**
+	*//**
      * @name logError
      * @desc Logs errors
      * @param {String} msg Message to log
      * @returns {String}
      * @memberOf Factories.Logger
-     */
+     *//*
 	
 	function handleRoutingErrors() {
-	    /**
+	    *//**
 	     * Route cancellation:
 	     * On routing error, go to the dashboard.
 	     * Provide an exit clause if it tries to do it twice.
-	     */
+	     *//*
 	    $rootScope.$on('$routeChangeError',
 	        function(event, current, previous, rejection) {
 	            if (handlingRouteChangeError) { return; }
@@ -261,24 +254,24 @@ function config($stateProvider, $urlRouterProvider) {
 	            var msg = 'Error routing to ' + destination + '. ' +
 	                (rejection.msg || '');
 
-	            /**
+	            *//**
 	             * Optionally log using a custom service or $log.
 	             * (Don't forget to inject custom service)
-	             */
+	             *//*
 	            logger.warning(msg, [current]);
 
-	            /**
+	            *//**
 	             * On routing error, go to another route/state.
-	             */
+	             *//*
 	            $location.path('/');
 
 	        }
 	    );
-	}
+	}*/
 	
 })();
 /**
- * Logger Factory
+ * Main Service
  * @namespace Factories
  */
 (function(){
@@ -286,7 +279,7 @@ function config($stateProvider, $urlRouterProvider) {
 		.module('app')
 		.factory('mainService', mainService);
 	
-	mainService.$inject = ['$http', 'logger'];
+	mainService.$inject = ['$http'];
 	
 	/**
 	 * @name logError
@@ -296,7 +289,7 @@ function config($stateProvider, $urlRouterProvider) {
 	 * @memberOf Factories.Logger
 	 */
 	
-	function mainService($http, logger){
+	function mainService($http){
 		var service = {
 	        getAvengers: getAvengers
 	    };
@@ -313,7 +306,7 @@ function config($stateProvider, $urlRouterProvider) {
 	        }
 	
 	        function getAvengersFailed(error) {
-	            logger.error('XHR Failed for getAvengers.' + error.data);
+	            //logger.error('XHR Failed for getAvengers.' + error.data);
 	        }
 	    }
 		

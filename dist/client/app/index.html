@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="MainController">
+<html ng-app="app" ng-controller="MainController" ng-strict-di>
 
 	<head>
 		<meta charset="utf-8">
@@ -15,7 +15,7 @@
 		<title>Angular Application</title>
 		
 		<!-- Application Stylesheet -->
-		<link href="assets/css/app.css" rel="stylesheet">
+		<link href="../app/assets/css/app.css" rel="stylesheet">
 		
 		<!-- Custom Styles -->
 		<style>
@@ -25,17 +25,17 @@
 		</style>
 
 		<!-- Custom Frameworks -->
-		<script type="text/javascript" src="assets/js/frameworks.min.js"></script>
+		<script type="text/javascript" src="../app/assets/js/frameworks.min.js"></script>
 		
 	</head>
 	
 	<body>
 		<div flex class="dynamic-container" ng-cloak>
-			<div ui-view flex ng-cloak></div>
+			<div ng-view flex ng-cloak></div>
 		</div>
 		
 		<!-- Script Files -->
-		<script src="main/app.min.js"></script>
+		<script src="../app/main/app.min.js"></script>
 		
 		<!-- Custom Script -->
 		<script type="text/javascript">

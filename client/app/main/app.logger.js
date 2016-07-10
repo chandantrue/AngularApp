@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	
-	angular
+	/*angular
 	    .module('app')
 	    .factory('logger', logger);
 	
@@ -13,7 +13,7 @@
      * @memberOf Factories.Logger
      */
 	
-	function logger() { 
+	/*function logger() { 
 		var someValue = '';
 	    var service = {
 	        save: save,
@@ -25,12 +25,12 @@
 	    ////////////
 
 	    function save() {
-	        /* */
+	        //
 	    };
 
 	    function validate() {
-	        /* */
+	        //
 	    };
-	}
+	}*/
 	
 })();

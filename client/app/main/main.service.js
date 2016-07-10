@@ -1,5 +1,5 @@
 /**
- * Logger Factory
+ * Main Service
  * @namespace Factories
  */
 (function(){
@@ -7,7 +7,7 @@
 		.module('app')
 		.factory('mainService', mainService);
 	
-	mainService.$inject = ['$http', 'logger'];
+	mainService.$inject = ['$http'];
 	
 	/**
 	 * @name logError
@@ -17,7 +17,7 @@
 	 * @memberOf Factories.Logger
 	 */
 	
-	function mainService($http, logger){
+	function mainService($http){
 		var service = {
 	        getAvengers: getAvengers
 	    };
@@ -34,7 +34,7 @@
 	        }
 	
 	        function getAvengersFailed(error) {
-	            logger.error('XHR Failed for getAvengers.' + error.data);
+	            //logger.error('XHR Failed for getAvengers.' + error.data);
 	        }
 	    }
 		

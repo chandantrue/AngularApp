@@ -1,6 +1,6 @@
 module.exports = {
 
-		appFrameworksCss: {
+		appCss: {
 			files: [{
 				expand: true,
 				cwd: 'client/app/assets/css',

@@ -39,22 +39,22 @@
 	    }
 	}
 	
-	var handlingRouteChangeError = false;
+	/*var handlingRouteChangeError = false;
 	
-	/**
+	*//**
      * @name logError
      * @desc Logs errors
      * @param {String} msg Message to log
      * @returns {String}
      * @memberOf Factories.Logger
-     */
+     *//*
 	
 	function handleRoutingErrors() {
-	    /**
+	    *//**
 	     * Route cancellation:
 	     * On routing error, go to the dashboard.
 	     * Provide an exit clause if it tries to do it twice.
-	     */
+	     *//*
 	    $rootScope.$on('$routeChangeError',
 	        function(event, current, previous, rejection) {
 	            if (handlingRouteChangeError) { return; }
@@ -65,19 +65,19 @@
 	            var msg = 'Error routing to ' + destination + '. ' +
 	                (rejection.msg || '');
 
-	            /**
+	            *//**
 	             * Optionally log using a custom service or $log.
 	             * (Don't forget to inject custom service)
-	             */
+	             *//*
 	            logger.warning(msg, [current]);
 
-	            /**
+	            *//**
 	             * On routing error, go to another route/state.
-	             */
+	             *//*
 	            $location.path('/');
 
 	        }
 	    );
-	}
+	}*/
 	
 })();

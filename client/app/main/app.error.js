@@ -1,48 +1,46 @@
 (function() {
 	'use strict';
-	
+
 	angular
-	    .module('app')
-	    .config(exceptionConfig);
-	
-	exceptionConfig.$inject = ['$provide'];
-	
-	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
-	 */
-	
-	function exceptionConfig($provide) {
-	    $provide.decorator('$exceptionHandler', extendExceptionHandler);
-	}
-	
-	extendExceptionHandler.$inject = ['$delegate', 'toastr'];
-	
-	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
-	 */
-	
-	function extendExceptionHandler($delegate, toastr) {
-	    return function(exception, cause) {
-	        $delegate(exception, cause);
-	        var errorData = {
-	            exception: exception,
-	            cause: cause
-	        };
-	        /**
-	         * Could add the error to a service's collection,
-	         * add errors to $rootScope, log errors to remote web server,
-	         * or log locally. Or throw hard. It is entirely up to you.
-	         * throw exception;
-	         */
-	        toastr.error(exception.msg, errorData);
-	    };
-	}
+		.module('app')
+		.factory('httpInterceptor', httpInterceptor);
+
+	httpInterceptor.inject = ['$q', '$location'];
+
+	function httpInterceptor($q, $location) {
+		var service =  {
+			'request': request,
+			'requestError': requestError,
+			'response': response,
+			'responseError': responseError
+		};
+		
+		return service;
+		
+		function request(config) {
+			// do something on success
+			return config;
+		}
+
+		function requestError(rejection) {
+			// do something on error
+			if (canRecover(rejection)) {
+				return responseOrNewPromise
+			}
+			return $q.reject(rejection);
+		}
+
+		function response(response) {
+			// do something on success
+			return response;
+		}
+
+		function responseError(rejection) {
+			// do something on error
+			if(rejection.status === 404){
+				$location.path('error');                    
+			}
+			return $q.reject(rejection);
+		}
+	};
 })();
