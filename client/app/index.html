@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MainController" ng-strict-di>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="title" content="AngularJS Application">
+		<meta name="description" content="Free Web tutorials">
+		<meta name="keywords" content="Angular, Architecture, Grunt, Gulp, Karma">
+		<meta name="author" content="Chandan Das">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Angular Application</title>
+		
+		<!-- Application Stylesheet -->
+		<link href="../app/assets/css/app.css" rel="stylesheet">
+		
+		<!-- Custom Styles -->
+		<style>
+			[ng-cloak] {
+				display: none;
+			}
+		</style>
+
+		<!-- Custom Frameworks -->
+		<script type="text/javascript" src="../app/assets/js/frameworks.min.js"></script>
+		
+	</head>
+	
+	<body>
+		<div flex class="dynamic-container" ng-cloak>
+			<div ng-view flex ng-cloak></div>
+		</div>
+		
+		<!-- Script Files -->
+		<script src="../app/main/app.min.js"></script>
+		
+		<!-- Custom Script -->
+		<script type="text/javascript">
+			$(document).ready(documentReady);
+			
+			function documentReady(){
+				
+			}
+		</script>
+	</body>
+</html>
