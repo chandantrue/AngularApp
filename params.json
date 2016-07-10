@@ -1,0 +1,6 @@
+{
+  "name": "AngularApp",
+  "tagline": "Skeleton for AngularJS Application with build automation configured",
+  "body": "# AngularApp\r\nSkeleton for AngularJS Application with build automation configured\r\n\r\nThis Application is configured with minimum plugin that is required for development, build scripts are written for making a production build.\r\n\r\nNote : Currently it is in development process. Not all functionality works.\r\n\r\n## Tools Configured in the Application\r\n* Grunt and Gulp - for Build Automation (either of Grunt/Gulp can be used. Both are provided as an option for use.)\r\n* Jasmine - for writing unit test cases for controllers and services\r\n* Karma - for Test runner\r\n* Angular Material - for UI Designing\r\n* Less and Sass - for CSS pre-processing (Both are provided as an option to choose.)\r\n\r\nFor more Details read below...\r\n\r\n## Initializing the Application\r\nRun npm install from the root AngularApp folder.\r\n\r\nThis will automatically run bower install for you.\r\n\r\nYou can start the application by running http-server on client folder within AngularApp.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
