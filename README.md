@@ -3,6 +3,8 @@ Skeleton for AngularJS Application with build automation configured
 
 This Application is configured with minimum plugin that is required for development, build scripts are written for making a production build.
 
+Note : Currently it is development process. Not all functionality works.
+
 #Tools Configured in the Application
 1. Grunt and Gulp - for Build Automation (either of Grunt/Gulp can be used. Both are provided as an option for use.)
 2. Jasmine - for writing unit test cases for controllers and services
