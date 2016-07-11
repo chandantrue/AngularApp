@@ -1,5 +1,14 @@
 var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
 
-gulp.task('default', function() {
-  // place code for your default task here
+function getTask(task) {
+    return require('./gulp/tasks/' + task)(gulp, plugins);
+}
+
+gulp.task('concat', getTask('concat'));
+gulp.task('sass', getTask('sass'));
+
+gulp.task('default', ['concat', 'sass'], function () {
+    gulp.watch('src/js/**/*.js', ['concat']);
+    gulp.watch('src/sass/**/*.{sass,scss}', ['sass']);
 });
