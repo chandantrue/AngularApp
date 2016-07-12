@@ -9,6 +9,6 @@ gulp.task('concat', getTask('concat'));
 gulp.task('sass', getTask('sass'));
 
 gulp.task('default', ['concat', 'sass'], function () {
-    gulp.watch('src/js/**/*.js', ['concat']);
-    gulp.watch('src/sass/**/*.{sass,scss}', ['sass']);
+    gulp.watch('client/app/main/**/*.js', ['concat']);
+    gulp.watch('client/app/assets/css/sass/**/*.{sass,scss}', ['sass']);
 });
