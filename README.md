@@ -25,31 +25,36 @@ Note : Currently it is in development phase. Not all functionality works.
 For more Details read below...
 
 ### Application Architecture
-AngularApp
-	|__ client
-			|__ app
-					|__ assets
-							|__ css
-									|__ less
-									|__ sass
-							|__ img
-							|__ js
-					|__ components
-							|__ directives
-							|__ filters
-					|__ main
-					|__ partials
-	|__ dist
-	|__ grunt
-			|__ config
-			|__ tasks
-	|__ test
-	|-- Gruntfile.js
-	|-- bower.json
-	|-- package.json
-	|-- karma.conf.js
-	|-- gulpfile.js	
-	
+	AngularApp
+		|__ client
+		|		|__ app
+		|				|__ assets
+		|				|		|__ css
+		|				|		|		|__ less
+		|				|		|		|__ sass
+		|				|		|__ img
+		|				|		|__ js
+		|				|__ components
+		|				|		|__ directives
+		|				|		|__ filters
+		|				|__ main
+		|				|__ partials
+		|__ dist
+		|__ grunt
+		|		|__ config
+		|		|__ tasks
+		|__ gulp
+		|		|__ tasks
+		|__ test
+		|		|__ app
+		|				|__ main
+		|				|__ partials
+		|-- Gruntfile.js
+		|-- bower.json
+		|-- package.json
+		|-- karma.conf.js
+		|-- gulpfile.js	
+		
 
 ### Initializing the Application
 Run npm install from the root AngularApp folder.
