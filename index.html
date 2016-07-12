@@ -22,14 +22,28 @@
       <h1>
 <a id="angularapp" class="anchor" href="#angularapp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AngularApp</h1>
 
-<p>Skeleton for AngularJS Application with build automation configured</p>
+<p>Skeleton for AngularJS Application with build configuration and test framework</p>
 
-<p>This Application is configured with minimum plugin that is required for development, build scripts are written for making a production build.</p>
+<p>This Application is configured with minimum plug-in that is required for development, build scripts are written for making a production build.</p>
 
-<p>Note : Currently it is in development process. Not all functionality works.</p>
+<p>Note : Currently it is in development phase. Not all functionality works.</p>
 
 <h2>
-<a id="tools-configured-in-the-application" class="anchor" href="#tools-configured-in-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools Configured in the Application</h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ol>
+<li>Tools Configured</li>
+<li>Application Architecture</li>
+<li>Initializing the Application</li>
+<li>Node Scripts</li>
+<li>Grunt Tasks and Configuration</li>
+<li>Application Insider</li>
+<li>References</li>
+<li>About</li>
+</ol>
+
+<h3>
+<a id="tools-configured-in-the-application" class="anchor" href="#tools-configured-in-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools Configured in the Application</h3>
 
 <ul>
 <li>Grunt and Gulp - for Build Automation (either of Grunt/Gulp can be used. Both are provided as an option for use.)</li>
@@ -41,14 +55,63 @@
 
 <p>For more Details read below...</p>
 
-<h2>
-<a id="initializing-the-application" class="anchor" href="#initializing-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initializing the Application</h2>
+<h3>
+<a id="application-architecture" class="anchor" href="#application-architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application Architecture</h3>
+
+<pre><code>AngularApp
+    |__ client
+    |       |__ app
+    |               |__ assets
+    |               |       |__ css
+    |               |       |       |__ less
+    |               |       |       |__ sass
+    |               |       |__ img
+    |               |       |__ js
+    |               |__ components
+    |               |       |__ directives
+    |               |       |__ filters
+    |               |__ main
+    |               |__ partials
+    |__ dist
+    |__ grunt
+    |       |__ config
+    |       |__ tasks
+    |__ gulp
+    |       |__ tasks
+    |__ test
+    |       |__ app
+    |               |__ main
+    |               |__ partials
+    |-- Gruntfile.js
+    |-- bower.json
+    |-- package.json
+    |-- karma.conf.js
+    |-- gulpfile.js 
+</code></pre>
+
+<h3>
+<a id="initializing-the-application" class="anchor" href="#initializing-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initializing the Application</h3>
 
 <p>Run npm install from the root AngularApp folder.</p>
 
 <p>This will automatically run bower install for you.</p>
 
-<p>You can start the application by running http-server on client folder within AngularApp.</p>
+<p>You can start the application by running http-server on client/app folder within AngularApp.</p>
+
+<h3>
+<a id="node-scripts" class="anchor" href="#node-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node Scripts</h3>
+
+<h3>
+<a id="grunt-tasks-and-configuration" class="anchor" href="#grunt-tasks-and-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt Tasks and Configuration</h3>
+
+<h3>
+<a id="application-insider" class="anchor" href="#application-insider" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application Insider</h3>
+
+<h3>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+
+<h3>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h3>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/chandantrue/AngularApp">AngularApp</a> is maintained by <a href="https://github.com/chandantrue">chandantrue</a>.</span>
