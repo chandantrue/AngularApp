@@ -2,32 +2,32 @@ module.exports = {
 		
 		initBuild: {
 			src: [
-			      'dist/'
+			      'dist/grunt/'
 			]
 		},
 		
 		appBuild: {
 			src: [
-			      'dist/client/app/assets/css/less',
-			      'dist/client/app/assets/css/sass',
-			      'dist/client/app/assets/css/app.css',
-			      'dist/client/app/assets/css/app.less.css',
-			      'dist/client/app/assets/css/app.sass.css',
-			      'dist/client/app/assets/css/app.sass.css.map',
-			      'dist/client/app/assets/css/frameworks.css',
-			      'dist/client/app/assets/js/frameworks.js',
-			      'dist/client/app/components',
-			      'dist/client/app/main/app.js',
-			      'dist/client/app/main/app.templates.js',
-			      'dist/client/app/main/app.module.js',
-			      'dist/client/app/main/app.route.js',
-			      'dist/client/app/main/app.constants.js',
-			      'dist/client/app/main/app.error.js',
-			      'dist/client/app/main/app.exception.js',
-			      'dist/client/app/main/app.logger.js',
-			      'dist/client/app/main/main.controller.js',
-			      'dist/client/app/main/main.service.js',
-			      'dist/client/app/partials'
+			      'dist/grunt/client/app/assets/css/less',
+			      'dist/grunt/client/app/assets/css/sass',
+			      'dist/grunt/client/app/assets/css/app.css',
+			      'dist/grunt/client/app/assets/css/app.less.css',
+			      'dist/grunt/client/app/assets/css/app.sass.css',
+			      'dist/grunt/client/app/assets/css/app.sass.css.map',
+			      'dist/grunt/client/app/assets/css/frameworks.css',
+			      'dist/grunt/client/app/assets/js/frameworks.js',
+			      'dist/grunt/client/app/components',
+			      'dist/grunt/client/app/main/app.js',
+			      'dist/grunt/client/app/main/app.templates.js',
+			      'dist/grunt/client/app/main/app.module.js',
+			      'dist/grunt/client/app/main/app.route.js',
+			      'dist/grunt/client/app/main/app.constants.js',
+			      'dist/grunt/client/app/main/app.error.js',
+			      'dist/grunt/client/app/main/app.exception.js',
+			      'dist/grunt/client/app/main/app.logger.js',
+			      'dist/grunt/client/app/main/main.controller.js',
+			      'dist/grunt/client/app/main/main.service.js',
+			      'dist/grunt/client/app/partials'
 			]
 		}
 }

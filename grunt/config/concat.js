@@ -10,7 +10,7 @@ module.exports = {
 			      'bower_components/angular-material/angular-material.min.js',
 			      'bower_components/angular-ui-router/release/angular-ui-router.min.js'
 			],
-			dest: 'client/app/assets/js/frameworks.js'
+			dest: 'dist/grunt/client/app/assets/js/frameworks.js'
 		},
 		
 		//Concat's Custom CSS Files
@@ -20,7 +20,7 @@ module.exports = {
 			      'bower_components/angular-material/angular-material.min.css'
 			      
 			],
-			dest: 'client/app/assets/css/frameworks.css'
+			dest: 'dist/grunt/client/app/assets/css/frameworks.css'
 		},
 		
 		//Concat's Application Specific JS Files
@@ -44,7 +44,7 @@ module.exports = {
 			      //Application Services
 			      'client/app/main/main.service.js'
 			],
-			dest: 'client/app/main/app.js'
+			dest: 'dist/grunt/client/app/main/app.js'
 		},
 		
 		appCss: {
@@ -55,6 +55,6 @@ module.exports = {
 			      'client/app/assets/css/frameworks.css',
 			      
 			],
-			dest: 'client/app/assets/css/app.css'
+			dest: 'dist/grunt/client/app/assets/css/app.css'
 		}
 };

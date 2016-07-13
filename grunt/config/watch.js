@@ -9,7 +9,7 @@ module.exports = {
 			        'client/app/partials/**/*.js',
 			        'client/app/partials/**/*.html',
 			],
-			tasks: ['sass:appSass', 'less:appLess', 'html2js:appCache', 'concat:appScripts', 'concat:appCss', 
+			tasks: ['copy:appDev', 'sass:appSass', 'less:appLess', 'html2js:appCache', 'concat:appScripts', 'concat:appCss', 
 			                'cssmin:appCss', 'uglify:appScripts'
 			],
 			options: {

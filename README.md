@@ -59,15 +59,43 @@ For more Details read below...
 ### Initializing the Application
 Run npm install from the root AngularApp folder.
 
+	$ > npm install
+
 This will automatically run bower install for you.
+
+	$ > bower install
 
 You can start the application by running http-server on client/app folder within AngularApp.
 
+	$ > http-server -p <port number>
+
 ### Node Scripts
 
+* "postinstall": "bower install"
+* "prestart": "npm install"
+* "start": "http-server -a localhost -p 8088 -c-1 ./app"
+* "pretest": "npm install"
+* "test": "karma start karma.conf.js"
+* "test-single-run": "karma start karma.conf.js --single-run"
+* "preupdate-webdriver": "npm install"
+* "update-webdriver": "webdriver-manager update"
+* "preprotractor": "npm run update-webdriver"
+* "protractor": "protractor e2e-tests/protractor.conf.js"
+* "update-index-async":
 
 ### Grunt Tasks and Configuration
 
+#### Grunt Config
+
+
+#### Grunt Tasks
+
+### Gulp Tasks and Configuration
+
+#### Gulp Config
+
+
+#### Gulp Tasks
 
 ### Application Insider
 

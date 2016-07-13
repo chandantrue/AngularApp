@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="MainController" ng-strict-di>
+<html ng-app="app" ng-controller="MainController">
 
 	<head>
 		<meta charset="utf-8">
@@ -12,10 +12,12 @@
 		<meta http-equiv="Pragma" content="no">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		
 		<title>Angular Application</title>
 		
 		<!-- Application Stylesheet -->
-		<link href="../app/assets/css/app.css" rel="stylesheet">
+		<link href="assets/css/app.css" rel="stylesheet">
 		
 		<!-- Custom Styles -->
 		<style>
@@ -25,17 +27,17 @@
 		</style>
 
 		<!-- Custom Frameworks -->
-		<script type="text/javascript" src="../app/assets/js/frameworks.min.js"></script>
+		<script type="text/javascript" src="assets/js/frameworks.min.js"></script>
 		
 	</head>
 	
 	<body>
 		<div flex class="dynamic-container" ng-cloak>
-			<div ng-view flex ng-cloak></div>
+			<div ui-view flex ng-cloak></div>
 		</div>
 		
 		<!-- Script Files -->
-		<script src="../app/main/app.min.js"></script>
+		<script src="main/app.min.js"></script>
 		
 		<!-- Custom Script -->
 		<script type="text/javascript">

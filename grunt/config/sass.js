@@ -5,7 +5,7 @@ module.exports = {
 					style: 'expanded'
 				},
 				files: {
-					'client/app/assets/css/app.sass.css': 'client/app/assets/css/sass/app.scss'
+					'dist/grunt/client/app/assets/css/app.sass.css': 'client/app/assets/css/sass/app.scss'
 				}
 		}
 };

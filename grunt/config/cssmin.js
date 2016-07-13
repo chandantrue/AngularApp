@@ -3,9 +3,9 @@ module.exports = {
 		appCss: {
 			files: [{
 				expand: true,
-				cwd: 'client/app/assets/css',
+				cwd: 'dist/grunt/client/app/assets/css',
 				src: ['app.css'],
-				dest: 'client/app/assets/css',
+				dest: 'dist/grunt/client/app/assets/css',
 				ext: '.min.css'
 			}]
 		}
