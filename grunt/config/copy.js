@@ -11,12 +11,11 @@ module.exports = {
 		appDev: {
 			files: [{
 				expand: true,
-				src: 'client/app/fonts/**',
+				src: ['client/app/assets/fonts/**'],
 				dest: 'dist/grunt/'
 			}, {
 				expand: true,
-				cwd: 'client/app/images/',
-				src: '**',
+				src: ['client/app/assets/images/**'],
 				dest: 'dist/grunt/'
 			}, {
 				src: ['client/app/index.html', 'client/app/favicon.ico'],
