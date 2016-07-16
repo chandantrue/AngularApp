@@ -64,14 +64,19 @@ Run npm install from the root AngularApp folder.
 This will automatically run bower install for you.
 
 	$ > bower install
+	
+Then it will run grunt build for you.
 
-You can start the application by running http-server on client/app folder within AngularApp.
+	$ > grunt build
+
+You can start the application by running http-server on dist/grunt/client/app folder within AngularApp.
 
 	$ > http-server -p <port number>
 
 ### Node Scripts
 
-* "postinstall": "bower install"
+* "preinstall": "bower install"
+* "postinstall": "grunt build"
 * "prestart": "npm install"
 * "start": "http-server -a localhost -p 8088 -c-1 ./app"
 * "pretest": "npm install"
@@ -85,15 +90,45 @@ You can start the application by running http-server on client/app folder within
 
 ### Grunt Tasks and Configuration
 
-#### Grunt Config
-
-
 #### Grunt Tasks
 
+* default
+
+Run with
+
+	"grunt"
+	
+It is for development use. It uses 'watch' for watching changes within files for subsequent build.
+
+* build
+
+Run with
+
+	"grunt build"
+	
+It is for generating compressed build version of the application. Build File is generated in 'dist/grunt' folder
+
+#### Grunt Config
+
+Contains different Build configuration for Grunt Tasks.
+
+'load-grunt-configs' is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use 
+
+	grunt.task.loadNpmTasks(pluginName)
+for individual config.
+
+* Clean
+* Compress
+* Copy
+* Concat
+* CssMin
+* HTML2Js
+* LESS
+* SASS
+* Uglify
+* Watch
+
 ### Gulp Tasks and Configuration
-
-#### Gulp Config
-
 
 #### Gulp Tasks
 

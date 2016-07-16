@@ -9,7 +9,7 @@
   },
   "scripts": {
     "preinstall": "bower install",
-    "postinstall": "grunt",
+    "postinstall": "grunt build",
     "start": "dist/client/app ./http-server -p 8088",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
