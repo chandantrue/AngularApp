@@ -94,15 +94,100 @@
 
 <p>Run npm install from the root AngularApp folder.</p>
 
+<pre><code>$ &gt; npm install
+</code></pre>
+
 <p>This will automatically run bower install for you.</p>
 
-<p>You can start the application by running http-server on client/app folder within AngularApp.</p>
+<pre><code>$ &gt; bower install
+</code></pre>
+
+<p>Then it will run grunt build for you.</p>
+
+<pre><code>$ &gt; grunt build
+</code></pre>
+
+<p>You can start the application by running http-server on dist/grunt/client/app folder within AngularApp.</p>
+
+<pre><code>$ &gt; http-server -p &lt;port number&gt;
+</code></pre>
 
 <h3>
 <a id="node-scripts" class="anchor" href="#node-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node Scripts</h3>
 
+<ul>
+<li>"preinstall": "bower install"</li>
+<li>"postinstall": "grunt build"</li>
+<li>"prestart": "npm install"</li>
+<li>"start": "http-server -a localhost -p 8088 -c-1 ./app"</li>
+<li>"pretest": "npm install"</li>
+<li>"test": "karma start karma.conf.js"</li>
+<li>"test-single-run": "karma start karma.conf.js --single-run"</li>
+<li>"preupdate-webdriver": "npm install"</li>
+<li>"update-webdriver": "webdriver-manager update"</li>
+<li>"preprotractor": "npm run update-webdriver"</li>
+<li>"protractor": "protractor e2e-tests/protractor.conf.js"</li>
+<li>"update-index-async":</li>
+</ul>
+
 <h3>
 <a id="grunt-tasks-and-configuration" class="anchor" href="#grunt-tasks-and-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt Tasks and Configuration</h3>
+
+<h4>
+<a id="grunt-tasks" class="anchor" href="#grunt-tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt Tasks</h4>
+
+<ul>
+<li>default</li>
+</ul>
+
+<p>Run with</p>
+
+<pre><code>"grunt"
+</code></pre>
+
+<p>It is for development use. It uses 'watch' for watching changes within files for subsequent build.</p>
+
+<ul>
+<li>build</li>
+</ul>
+
+<p>Run with</p>
+
+<pre><code>"grunt build"
+</code></pre>
+
+<p>It is for generating compressed build version of the application. Build File is generated in 'dist/grunt' folder</p>
+
+<h4>
+<a id="grunt-config" class="anchor" href="#grunt-config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt Config</h4>
+
+<p>Contains different Build configuration for Grunt Tasks.</p>
+
+<p>'load-grunt-configs' is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use </p>
+
+<pre><code>grunt.task.loadNpmTasks(pluginName)
+</code></pre>
+
+<p>for individual config.</p>
+
+<ul>
+<li>Clean</li>
+<li>Compress</li>
+<li>Copy</li>
+<li>Concat</li>
+<li>CssMin</li>
+<li>HTML2Js</li>
+<li>LESS</li>
+<li>SASS</li>
+<li>Uglify</li>
+<li>Watch</li>
+</ul>
+
+<h3>
+<a id="gulp-tasks-and-configuration" class="anchor" href="#gulp-tasks-and-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gulp Tasks and Configuration</h3>
+
+<h4>
+<a id="gulp-tasks" class="anchor" href="#gulp-tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gulp Tasks</h4>
 
 <h3>
 <a id="application-insider" class="anchor" href="#application-insider" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application Insider</h3>
