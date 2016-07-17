@@ -11,11 +11,10 @@
 	MainController.$inject = ['mainService'];
 	
 	/**
-     * @name logError
-     * @desc Logs errors
-     * @param {String} msg Message to log
-     * @returns {String}
-     * @memberOf Factories.Logger
+     * @name MainController
+     * @desc Binds logic to index.html
+     * @param {mainService} Services to be Injected
+     * @memberOf Controller.MainController
      */
 	
 	function MainController(mainService){

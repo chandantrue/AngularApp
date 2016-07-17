@@ -6,6 +6,13 @@
 	
 	configModule.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 	
+	/**
+     * @name configModule
+     * @desc Holds the Routing Logic for the Angular Application
+     * @param {$stateProvider, $urlRouterProvider, $httpProvider} Services to be Injected
+     * @memberOf Config.configModule
+     */
+	
 	function configModule($stateProvider, $urlRouterProvider, $httpProvider) {
 		
 		// For any unmatched url, send to /route1

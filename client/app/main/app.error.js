@@ -6,7 +6,14 @@
 		.factory('httpInterceptor', httpInterceptor);
 
 	httpInterceptor.inject = ['$q', '$location'];
-
+	
+	/**
+     * @name httpInterceptor
+     * @desc intercepts all HTTP calls and Performs action on Request or Response
+     * @param {$q, $location} Services to be Injected
+     * @memberOf Interceptor.httpInterceptor
+     */
+	
 	function httpInterceptor($q, $location) {
 		var service =  {
 			'request': request,

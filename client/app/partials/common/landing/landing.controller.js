@@ -11,10 +11,9 @@
 	LandingController.$inject = ['mainService'];
 	
 	/**
-     * @name logError
-     * @desc Logs errors
-     * @param {String} msg Message to log
-     * @returns {String}
+     * @name LandingController
+     * @desc Binding logic with landing.html
+     * @param {mainService}Services to be Injected
      * @memberOf Controllers.Landing
      */
 	

@@ -10,10 +10,10 @@
 	mainService.$inject = ['$http'];
 	
 	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
+	 * @name mainService
+	 * @desc Holds functions to make HTTP calls to the backend
+	 * @param {$http service}
+	 * @returns {response}
 	 * @memberOf Factories.Logger
 	 */
 	

@@ -10,6 +10,7 @@
   "scripts": {
     "preinstall": "bower install",
     "postinstall": "grunt build",
+    "bundle": "webpack",
     "start": "dist/client/app ./http-server -p 8088",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
@@ -48,6 +49,10 @@
     "karma": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
-    "load-grunt-config": "^0.19.2"
+    "load-grunt-config": "^0.19.2",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "grunt-contrib-requirejs": "^1.0.0"
   }
 }

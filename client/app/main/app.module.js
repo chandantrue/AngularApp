@@ -16,9 +16,7 @@
 	/**
      * @name runModule
      * @desc Has initialization logic after the application bootstraps
-     * @param {String} msg Message to log
-     * @returns {String}
-     * @memberOf Factories.Logger
+     * @memberOf Run.runModule
      */
 	
 	function runModule() {

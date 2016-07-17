@@ -8,11 +8,11 @@
 	exceptionHandler.$inject = ['$log'];
 	
 	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
+	 * @name exceptionHandler
+	 * @desc Handles exception and Informs User of actions
+	 * @param {$log} msg Message to log
+	 * @returns {function}
+	 * @memberOf Exception.exceptionHandler
 	 */
 	
 	function exceptionHandler($log) {
