@@ -22,9 +22,7 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	/**
      * @name runModule
      * @desc Has initialization logic after the application bootstraps
-     * @param {String} msg Message to log
-     * @returns {String}
-     * @memberOf Factories.Logger
+     * @memberOf Run.runModule
      */
 	
 	function runModule() {
@@ -39,6 +37,13 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 		.config(configModule);
 	
 	configModule.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+	
+	/**
+     * @name configModule
+     * @desc Holds the Routing Logic for the Angular Application
+     * @param {$stateProvider, $urlRouterProvider, $httpProvider} Services to be Injected
+     * @memberOf Config.configModule
+     */
 	
 	function configModule($stateProvider, $urlRouterProvider, $httpProvider) {
 		
@@ -87,11 +92,11 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	exceptionHandler.$inject = ['$log'];
 	
 	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
-	 * @memberOf Factories.Logger
+	 * @name exceptionHandler
+	 * @desc Handles exception and Informs User of actions
+	 * @param {$log} msg Message to log
+	 * @returns {function}
+	 * @memberOf Exception.exceptionHandler
 	 */
 	
 	function exceptionHandler($log) {
@@ -113,7 +118,14 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 		.factory('httpInterceptor', httpInterceptor);
 
 	httpInterceptor.inject = ['$q', '$location'];
-
+	
+	/**
+     * @name httpInterceptor
+     * @desc intercepts all HTTP calls and Performs action on Request or Response
+     * @param {$q, $location} Services to be Injected
+     * @memberOf Interceptor.httpInterceptor
+     */
+	
 	function httpInterceptor($q, $location) {
 		var service =  {
 			'request': request,
@@ -200,11 +212,10 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	MainController.$inject = ['mainService'];
 	
 	/**
-     * @name logError
-     * @desc Logs errors
-     * @param {String} msg Message to log
-     * @returns {String}
-     * @memberOf Factories.Logger
+     * @name MainController
+     * @desc Binds logic to index.html
+     * @param {mainService} Services to be Injected
+     * @memberOf Controller.MainController
      */
 	
 	function MainController(mainService){
@@ -282,10 +293,10 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	mainService.$inject = ['$http'];
 	
 	/**
-	 * @name logError
-	 * @desc Logs errors
-	 * @param {String} msg Message to log
-	 * @returns {String}
+	 * @name mainService
+	 * @desc Holds functions to make HTTP calls to the backend
+	 * @param {$http service}
+	 * @returns {response}
 	 * @memberOf Factories.Logger
 	 */
 	

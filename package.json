@@ -24,7 +24,7 @@
   "keywords": [
     "Angular"
   ],
-  "author": "Chandan Das",
+  "author": "Chandan Das <chandantrue@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "grunt": "^1.0.1",
