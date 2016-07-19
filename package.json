@@ -11,7 +11,7 @@
     "preinstall": "bower install",
     "postinstall": "grunt build",
     "bundle": "webpack",
-    "start": "dist/client/app ./http-server -p 8088",
+    "start": "http-server dist/grunt/client/app/ -p 8088 -o -r",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
@@ -49,7 +49,9 @@
     "karma": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
+    "karma-requirejs": "^1.0.0",
     "load-grunt-config": "^0.19.2",
+    "requirejs": "^2.2.0",
     "webpack": "^1.13.1"
   },
   "dependencies": {

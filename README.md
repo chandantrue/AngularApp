@@ -69,9 +69,9 @@ Then it will run grunt build for you.
 
 	$ > grunt build
 
-You can start the application by running http-server on dist/grunt/client/app folder within AngularApp.
+You can start the application by running below command, which will start the application at localhost:8088/.
 
-	$ > http-server -p <port number>
+	$ > npm start
 
 ### Node Scripts
 

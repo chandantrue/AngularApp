@@ -53,11 +53,12 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 		$stateProvider
 			.state('landing', {
 				url: "/landing",
-				templateUrl: "../partials/common/landing/landing.html"
+				templateUrl: "../app/partials/common/landing/landing.html",
+				controller: 'LandingController'
 			})
 			
 		//Registering Error Interceptor for HTTP's Requests
-		$httpProvider.interceptors.push('httpInterceptor');
+		//$httpProvider.interceptors.push('httpInterceptor');
 	}
 })();
 /* global toastr:false, moment:false */
