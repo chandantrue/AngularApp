@@ -22,7 +22,8 @@
 			.state('landing', {
 				url: "/landing",
 				templateUrl: "../app/partials/common/landing/landing.html",
-				controller: 'LandingController'
+				controller: 'LandingController',
+				controllerAs: 'landing'
 			})
 			
 		//Registering Error Interceptor for HTTP's Requests

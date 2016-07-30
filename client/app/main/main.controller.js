@@ -1,6 +1,6 @@
 /**
- * Logger Factory
- * @namespace Factories
+ * Main Controller
+ * @namespace Controllers
  */
 (function() {
 
@@ -14,28 +14,28 @@
      * @name MainController
      * @desc Binds logic to index.html
      * @param {mainService} Services to be Injected
-     * @memberOf Controller.MainController
+     * @memberOf Controllers.MainController
      */
 	
 	function MainController(mainService){
 		var vm = this;
 		
 		vm.greeting = 'Hello World';
-		vm.greet = greet;
-		vm.getAvengers = getAvengers;
+		/*vm.greet = greet;
+		vm.getAvengers = getAvengers;*/
 		
 		function greet(){
 			return 'Hello World';
 		}
 		
-		function getAvengers() {
+		/*function getAvengers() {
 	        return mainService.getAvengers()
 		        .then(function(data) {
 		            vm.greet = data;
 		            return vm.greet;
 		        })
 		        .catch(showError);
-	    }
+	    }*/
 	}
 	
 	/*var handlingRouteChangeError = false;

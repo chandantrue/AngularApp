@@ -8,7 +8,7 @@
 		.module('app')
 		.controller('LandingController', LandingController);
 	
-	LandingController.$inject = ['mainService'];
+	LandingController.$inject = ['landingService'];
 	
 	/**
      * @name LandingController
@@ -17,19 +17,19 @@
      * @memberOf Controllers.Landing
      */
 	
-	function LandingController(mainService){
+	function LandingController(landingService){
 		var vm = this;
 		
 		vm.greeting = 'Hello World';
 		vm.greet = greet;
-		vm.getAvengers = getAvengers;
+		vm.getLanding = getLanding;
 		
 		function greet(){
 			return 'Hello World';
 		}
 		
-		function getAvengers() {
-	        return mainService.getAvengers()
+		function getLanding() {
+	        return landingService.getLanding()
 		        .then(function(data) {
 		            vm.greet = data;
 		            return vm.greet;

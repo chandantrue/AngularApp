@@ -19,21 +19,21 @@
 	
 	function mainService($http){
 		var service = {
-	        getAvengers: getAvengers
+	        get: get
 	    };
 		
 		return service;
 	
-	    function getAvengers() {
-	        return $http.get('/api/maa')
-	            .then(getAvengersComplete)
-	            .catch(getAvengersFailed);
+	    function get(path) {
+	        return $http.get(path)
+	            .then(getComplete)
+	            .catch(getFailed);
 	
-	        function getAvengersComplete(response) {
+	        function getComplete(response) {
 	            return response.data.results;
 	        }
 	
-	        function getAvengersFailed(error) {
+	        function getFailed(error) {
 	            //logger.error('XHR Failed for getAvengers.' + error.data);
 	        }
 	    }

@@ -1,7 +1,7 @@
 angular.module('app.templates', []).run(['$templateCache', function($templateCache) {
   "use strict";
   $templateCache.put("../app/partials/common/landing/landing.html",
-    "<md-content>Hi</md-content>");
+    "<md-content>{{main.greeting}}</md-content>");
 }]);
 
 (function() {
@@ -54,7 +54,8 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 			.state('landing', {
 				url: "/landing",
 				templateUrl: "../app/partials/common/landing/landing.html",
-				controller: 'LandingController'
+				controller: 'LandingController',
+				controllerAs: 'landing'
 			})
 			
 		//Registering Error Interceptor for HTTP's Requests
@@ -201,8 +202,8 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	
 })();
 /**
- * Logger Factory
- * @namespace Factories
+ * Main Controller
+ * @namespace Controllers
  */
 (function() {
 
@@ -216,28 +217,28 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
      * @name MainController
      * @desc Binds logic to index.html
      * @param {mainService} Services to be Injected
-     * @memberOf Controller.MainController
+     * @memberOf Controllers.MainController
      */
 	
 	function MainController(mainService){
 		var vm = this;
 		
 		vm.greeting = 'Hello World';
-		vm.greet = greet;
-		vm.getAvengers = getAvengers;
+		/*vm.greet = greet;
+		vm.getAvengers = getAvengers;*/
 		
 		function greet(){
 			return 'Hello World';
 		}
 		
-		function getAvengers() {
+		/*function getAvengers() {
 	        return mainService.getAvengers()
 		        .then(function(data) {
 		            vm.greet = data;
 		            return vm.greet;
 		        })
 		        .catch(showError);
-	    }
+	    }*/
 	}
 	
 	/*var handlingRouteChangeError = false;
@@ -303,21 +304,21 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	
 	function mainService($http){
 		var service = {
-	        getAvengers: getAvengers
+	        get: get
 	    };
 		
 		return service;
 	
-	    function getAvengers() {
-	        return $http.get('/api/maa')
-	            .then(getAvengersComplete)
-	            .catch(getAvengersFailed);
+	    function get(path) {
+	        return $http.get(path)
+	            .then(getComplete)
+	            .catch(getFailed);
 	
-	        function getAvengersComplete(response) {
+	        function getComplete(response) {
 	            return response.data.results;
 	        }
 	
-	        function getAvengersFailed(error) {
+	        function getFailed(error) {
 	            //logger.error('XHR Failed for getAvengers.' + error.data);
 	        }
 	    }

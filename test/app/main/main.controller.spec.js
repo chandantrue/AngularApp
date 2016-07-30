@@ -1,19 +1,17 @@
-describe(‘Hello World example ’, function() {
+describe('Main Controller', function() {
+	
+	var $controller;
+	
+	beforeEach(angular.mock.module('app'));
 
-	beforeEach(module(‘app’));
-
-	var MainController,
-	scope;
-
-	beforeEach(inject(function ($rootScope, $controller) {
-		scope = $rootScope.$new();
-		MainController = $controller('MainController', {
-			$scope: scope
-		});
+	beforeEach(inject(function (_$controller_) {
+		$controller = _$controller_;
 	}));
 	
-	it('says hello world!', function () {
-		expect(scope.greeting).toEqual("Hello world!”);
+	it('should exist', function () {
+		var $scope = {};
+	    var controller = $controller('MainController', { $scope: $scope });
+		expect(controller).toBeDefined();
 	});
 
 });
