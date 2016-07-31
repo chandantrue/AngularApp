@@ -26,7 +26,10 @@
 
 <p>This Application is configured with minimum plug-in that is required for development, build scripts are written for making a production build.</p>
 
-<p>Note : Currently it is in development phase. Not all functionality works.</p>
+<pre><code>Note : Currently Application with Grunt Tasks and Test Runner is Configured.
+
+Next : Gulp and Webpack integration is in development phase.
+</code></pre>
 
 <h2>
 <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
@@ -37,6 +40,7 @@
 <li>Initializing the Application</li>
 <li>Node Scripts</li>
 <li>Grunt Tasks and Configuration</li>
+<li>Karma</li>
 <li>Application Insider</li>
 <li>References</li>
 <li>About</li>
@@ -107,9 +111,9 @@
 <pre><code>$ &gt; grunt build
 </code></pre>
 
-<p>You can start the application by running http-server on dist/grunt/client/app folder within AngularApp.</p>
+<p>You can start the application by running below command, which will start the application at localhost:8088/.</p>
 
-<pre><code>$ &gt; http-server -p &lt;port number&gt;
+<pre><code>$ &gt; npm start
 </code></pre>
 
 <h3>
@@ -119,15 +123,13 @@
 <li>"preinstall": "bower install"</li>
 <li>"postinstall": "grunt build"</li>
 <li>"prestart": "npm install"</li>
-<li>"start": "http-server -a localhost -p 8088 -c-1 ./app"</li>
+<li>"start": "http-server dist/grunt/client/app/ -p 8088 -o -r"</li>
 <li>"pretest": "npm install"</li>
 <li>"test": "karma start karma.conf.js"</li>
 <li>"test-single-run": "karma start karma.conf.js --single-run"</li>
 <li>"preupdate-webdriver": "npm install"</li>
 <li>"update-webdriver": "webdriver-manager update"</li>
 <li>"preprotractor": "npm run update-webdriver"</li>
-<li>"protractor": "protractor e2e-tests/protractor.conf.js"</li>
-<li>"update-index-async":</li>
 </ul>
 
 <h3>
@@ -137,7 +139,7 @@
 <a id="grunt-tasks" class="anchor" href="#grunt-tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt Tasks</h4>
 
 <ul>
-<li>default</li>
+<li>default (for development)</li>
 </ul>
 
 <p>Run with</p>
@@ -148,7 +150,7 @@
 <p>It is for development use. It uses 'watch' for watching changes within files for subsequent build.</p>
 
 <ul>
-<li>build</li>
+<li>build (minified build for production)</li>
 </ul>
 
 <p>Run with</p>
@@ -163,7 +165,7 @@
 
 <p>Contains different Build configuration for Grunt Tasks.</p>
 
-<p>'load-grunt-configs' is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use </p>
+<p><strong>load-grunt-configs</strong> is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use</p>
 
 <pre><code>grunt.task.loadNpmTasks(pluginName)
 </code></pre>
@@ -178,10 +180,21 @@
 <li>CssMin</li>
 <li>HTML2Js</li>
 <li>LESS</li>
+<li>ProcessHTML</li>
 <li>SASS</li>
 <li>Uglify</li>
 <li>Watch</li>
 </ul>
+
+<h3>
+<a id="karma-and-jasmine" class="anchor" href="#karma-and-jasmine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Karma and Jasmine</h3>
+
+<p>Run Karma with</p>
+
+<pre><code>$ &gt; karma start
+</code></pre>
+
+<p>It starts karma initializing with <em>karma.conf.js</em> and opens Chrome Browser for debugging with Infinite Concurrency. After running each test it watches for changes in the test files for subsequent run.</p>
 
 <h3>
 <a id="gulp-tasks-and-configuration" class="anchor" href="#gulp-tasks-and-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gulp Tasks and Configuration</h3>
@@ -194,6 +207,8 @@
 
 <h3>
 <a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+
+<p>John Papa style of Coding. For More details visit this <a href="https://github.com/johnpapa/angular-styleguide">link</a></p>
 
 <h3>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About</h3>
