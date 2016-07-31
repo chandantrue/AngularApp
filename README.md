@@ -3,7 +3,9 @@ Skeleton for AngularJS Application with build configuration and test framework
 
 This Application is configured with minimum plug-in that is required for development, build scripts are written for making a production build.
 
-Note : Currently it is in development phase. Not all functionality works.
+	Note : Currently Application with Grunt Tasks and Test Runner is Configured.
+
+	Next : Gulp and Webpack is integration is in development phase.
 
 ## Table of Contents
 1. Tools Configured
@@ -11,9 +13,10 @@ Note : Currently it is in development phase. Not all functionality works.
 3. Initializing the Application
 4. Node Scripts
 5. Grunt Tasks and Configuration
-6. Application Insider
-7. References
-8. About
+6. Karma
+7. Application Insider
+8. References
+9. About
 
 ### Tools Configured in the Application
 * Grunt and Gulp - for Build Automation (either of Grunt/Gulp can be used. Both are provided as an option for use.)
@@ -75,24 +78,22 @@ You can start the application by running below command, which will start the app
 
 ### Node Scripts
 
-* "preinstall": "bower install"
-* "postinstall": "grunt build"
-* "prestart": "npm install"
-* "start": "http-server -a localhost -p 8088 -c-1 ./app"
-* "pretest": "npm install"
-* "test": "karma start karma.conf.js"
-* "test-single-run": "karma start karma.conf.js --single-run"
-* "preupdate-webdriver": "npm install"
-* "update-webdriver": "webdriver-manager update"
-* "preprotractor": "npm run update-webdriver"
-* "protractor": "protractor e2e-tests/protractor.conf.js"
-* "update-index-async":
+- "preinstall": "bower install"
+- "postinstall": "grunt build"
+- "prestart": "npm install"
+- "start": "http-server dist/grunt/client/app/ -p 8088 -o -r"
+- "pretest": "npm install"
+- "test": "karma start karma.conf.js"
+- "test-single-run": "karma start karma.conf.js --single-run"
+- "preupdate-webdriver": "npm install"
+- "update-webdriver": "webdriver-manager update"
+- "preprotractor": "npm run update-webdriver"
 
 ### Grunt Tasks and Configuration
 
 #### Grunt Tasks
 
-* default
+* default (for development)
 
 Run with
 
@@ -100,7 +101,7 @@ Run with
 	
 It is for development use. It uses 'watch' for watching changes within files for subsequent build.
 
-* build
+* build (minified build for production)
 
 Run with
 
@@ -112,21 +113,30 @@ It is for generating compressed build version of the application. Build File is 
 
 Contains different Build configuration for Grunt Tasks.
 
-'load-grunt-configs' is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use 
+**load-grunt-configs** is used to automatically pick the plugins from node_modules for the respective config file so, we don't have to use
 
 	grunt.task.loadNpmTasks(pluginName)
 for individual config.
 
-* Clean
-* Compress
-* Copy
-* Concat
-* CssMin
-* HTML2Js
-* LESS
-* SASS
-* Uglify
-* Watch
+- Clean
+- Compress
+- Copy
+- Concat
+- CssMin
+- HTML2Js
+- LESS
+- ProcessHTML
+- SASS
+- Uglify
+- Watch
+
+### Karma and Jasmine
+
+Run Karma with
+
+	$ > karma start
+	
+It starts karma initializing with *karma.conf.js* and opens Chrome Browser for debugging with Infinite Concurrency. After running each test it watches for changes in the test files for subsequent run.
 
 ### Gulp Tasks and Configuration
 
@@ -137,5 +147,6 @@ for individual config.
 
 ### References
 
+John Papa style of Coding. For More details visit this [link](https://github.com/johnpapa/angular-styleguide)
 
 ### About
