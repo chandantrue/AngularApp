@@ -25,7 +25,7 @@
 		vm.getLanding = getLanding;
 		
 		function greet(){
-			return 'Hello World';
+			return vm.greeting;
 		}
 		
 		function getLanding() {

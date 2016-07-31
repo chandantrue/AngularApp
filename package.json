@@ -39,24 +39,19 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html2js": "^0.3.6",
+    "grunt-processhtml": "^0.4.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-load-plugins": "^1.2.4",
     "gulp-sass": "^2.3.2",
-    "gulp-scss": "^1.4.0",
     "jasmine-core": "^2.4.1",
     "jit-grunt": "^0.10.0",
     "karma": "^1.1.1",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
-    "karma-requirejs": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
     "load-grunt-config": "^0.19.2",
-    "requirejs": "^2.2.0",
     "webpack": "^1.13.1"
-  },
-  "dependencies": {
-    "grunt-contrib-requirejs": "^1.0.0"
   }
 }

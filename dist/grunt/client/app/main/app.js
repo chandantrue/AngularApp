@@ -1,7 +1,7 @@
 angular.module('app.templates', []).run(['$templateCache', function($templateCache) {
   "use strict";
   $templateCache.put("../app/partials/common/landing/landing.html",
-    "<md-content>{{main.greeting}}</md-content>");
+    "<md-content>{{vm.greeting}}</md-content>");
 }]);
 
 (function() {
@@ -41,21 +41,21 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	/**
      * @name configModule
      * @desc Holds the Routing Logic for the Angular Application
-     * @param {$stateProvider, $urlRouterProvider, $httpProvider} Services to be Injected
+     * @param {$stateProvider, $urlRouterProvider} Services to be Injected
      * @memberOf Config.configModule
      */
 	
-	function configModule($stateProvider, $urlRouterProvider, $httpProvider) {
+	function configModule($stateProvider, $urlRouterProvider) {
 		
-		// For any unmatched url, send to /route1
+		// For any unmatched url, send to /landing
 		$urlRouterProvider.otherwise("/landing")
 	
 		$stateProvider
 			.state('landing', {
-				url: "/landing",
-				templateUrl: "../app/partials/common/landing/landing.html",
+				url: '/landing',
+				templateUrl: '../app/partials/common/landing/landing.html',
 				controller: 'LandingController',
-				controllerAs: 'landing'
+				controllerAs: 'vm'
 			})
 			
 		//Registering Error Interceptor for HTTP's Requests
@@ -284,6 +284,47 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	
 })();
 /**
+ * Landing Controller
+ * @namespace Controllers
+ */
+(function() {
+
+	angular
+		.module('app')
+		.controller('LandingController', LandingController);
+	
+	LandingController.$inject = ['landingService'];
+	
+	/**
+     * @name LandingController
+     * @desc Binding logic with landing.html
+     * @param {mainService}Services to be Injected
+     * @memberOf Controllers.Landing
+     */
+	
+	function LandingController(landingService){
+		var vm = this;
+		
+		vm.greeting = 'Hello World';
+		vm.greet = greet;
+		vm.getLanding = getLanding;
+		
+		function greet(){
+			return vm.greeting;
+		}
+		
+		function getLanding() {
+	        return landingService.getLanding()
+		        .then(function(data) {
+		            vm.greet = data;
+		            return vm.greet;
+		        })
+		        .catch(showError);
+	    }
+	}
+	
+})();
+/**
  * Main Service
  * @namespace Factories
  */
@@ -319,6 +360,48 @@ angular.module('app.templates', []).run(['$templateCache', function($templateCac
 	        }
 	
 	        function getFailed(error) {
+	            //logger.error('XHR Failed for getAvengers.' + error.data);
+	        }
+	    }
+		
+	}
+})();
+/**
+ * Main Service
+ * @namespace Factories
+ */
+(function(){
+	angular
+		.module('app')
+		.factory('landingService', landingService);
+	
+	landingService.$inject = ['mainService'];
+	
+	/**
+	 * @name landingService
+	 * @desc Holds functions to make HTTP calls to the backend
+	 * @param {mainService service}
+	 * @returns {response}
+	 * @memberOf Factories.landingService
+	 */
+	
+	function landingService(mainService){
+		var service = {
+	        getLanding: getLanding
+	    };
+		
+		return service;
+	
+	    function getLanding() {
+	        return mainService.get('/api/maa')
+	            .then(getLandingComplete)
+	            .catch(getLandingFailed);
+	
+	        function getLandingComplete(response) {
+	            return response.data.results;
+	        }
+	
+	        function getLandingFailed(error) {
 	            //logger.error('XHR Failed for getAvengers.' + error.data);
 	        }
 	    }

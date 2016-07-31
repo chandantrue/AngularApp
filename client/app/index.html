@@ -17,7 +17,11 @@
 		<title>Angular Application</title>
 		
 		<!-- Application Stylesheet -->
-		<link href="assets/css/app.css" rel="stylesheet">
+		<!-- build:css assets/css/app.min.css -->
+		<link href='assets/css/app.less.css' rel="stylesheet">
+		<link href='assets/css/app.sass.css' rel="stylesheet">
+		<link href='assets/css/frameworks.css' rel="stylesheet">
+		<!-- /build -->
 		
 		<!-- Custom Styles -->
 		<style>
@@ -27,7 +31,9 @@
 		</style>
 
 		<!-- Custom Frameworks -->
-		<script type="text/javascript" src="assets/js/frameworks.min.js"></script>
+		<!-- build:js assets/js/frameworks.min.js -->
+		<script src='assets/js/frameworks.js'></script>
+		<!-- /build -->
 		
 	</head>
 	
@@ -37,7 +43,31 @@
 		</div>
 		
 		<!-- Script Files -->
-		<script src="main/app.min.js"></script>
+		<!-- build:js main/app.min.js -->
+		
+		<!-- Template Cache JS Files -->
+		<script src='main/app.templates.js'></script>
+		
+		<!-- Main Application Modules JS Files -->
+		
+		<script src='main/app.module.js'></script>
+		<script src='main/app.route.js'></script>
+		<script src='main/app.constants.js'></script>
+		<script src='main/app.exception.js'></script>
+		<script src='main/app.error.js'></script>
+		<script src='main/app.logger.js'></script>
+		
+		<!-- Application Controllers JS Files -->
+		
+		<script src='main/main.controller.js'></script>
+		<script src='partials/common/landing/landing.controller.js'></script>
+		
+		<!-- Application Services JS Files -->
+		
+		<script src='main/main.service.js'></script>
+		<script src='partials/common/landing/landing.service.js'></script>
+		
+		<!-- /build -->
 		
 		<!-- Custom Script -->
 		<script type="text/javascript">
