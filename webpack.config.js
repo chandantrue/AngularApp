@@ -1,16 +1,23 @@
-var webpack = require('webpack');
+var webpack = require('webpack'),
+path = require('path');
 
 module.exports = {
-		context: __dirname + '/app',
+		context: __dirname + '/client/app',
 		entry: {
-			app: './app.js',
-			vendor: ['angular']
+			app: ['webpack/hot/dev-server', './main/app.module.js']
 		},
 		output: {
-			path: __dirname + '/js',
-			filename: 'app.bundle.js'
+			path: __dirname + '/dist/webpack/client/app/main',
+			filename: 'app.min.js'
+		},
+		module: {
+			loaders: [
+			          { test: /\.scss$/, loader: 'style!css!sass' },
+			          { test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/, loader : 'file-loader?name=res/[name].[ext]?[hash]' }
+			]
 		},
 		plugins: [
-		    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+		    /*new webpack.optimize.CommonsChunkPlugin( chunkName= "vendor",  filename= "vendor.bundle.js")*/
+		    new webpack.HotModuleReplacementPlugin()
 		]
 };
